@@ -1,13 +1,18 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-
 // Write password to the #password input
 
 function writePassword() {
 
 
   // initial values 
+
+  var confirmCap = true;
+  var confirmLow = true;
+  var confirmSpec = true;
+  var confirmNumeric = true;
+ 
 
   var str = {
     num: 0,
@@ -44,7 +49,7 @@ function writePassword() {
   
     addSpec: function() {
   
-      var confirmSpec = confirm("Would you like special characters in your password?");
+     confirmSpec = confirm("Would you like special characters in your password?");
   
       if (confirmSpec) {
         this.finalArray.push(this.includSpec);
@@ -54,7 +59,7 @@ function writePassword() {
   
     addLow: function() {
   
-      var confirmLow = confirm("Would you like to use lower case letters in your password?");
+      confirmLow = confirm("Would you like to use lower case letters in your password?");
   
       if (confirmLow) {
         this.finalArray.push(this.includLow);
@@ -64,7 +69,7 @@ function writePassword() {
   
     addCap: function() {
   
-      var confirmCap = confirm("Would you like to use upper case letters in your password?");
+      confirmCap = confirm("Would you like to use upper case letters in your password?");
   
       if (confirmCap) {
         this.finalArray.push(this.includCap);
@@ -74,7 +79,7 @@ function writePassword() {
   
     addNumeric: function() {
   
-      var confirmNumeric = confirm("Would you like to use numbers in your password?");
+      confirmNumeric = confirm("Would you like to use numbers in your password?");
   
       if (confirmNumeric) {
         this.finalArray.push(this.includNum);
@@ -85,7 +90,21 @@ function writePassword() {
     // to flatten the array of character parameters chosen by the user
   
     flattenFinal: function() {
+      
       str.passArray = this.finalArray.flat();
+
+
+      // if user does not select any characters to use in their password the function will start over
+
+      if (confirmCap === false && confirmLow === false && confirmNumeric === false && confirmSpec === false) {
+        alert("You did not select any characters! Please try again.");
+        writePassword();
+      }
+      
+      else {
+        generatePassword();
+      }
+
     },
   
   
