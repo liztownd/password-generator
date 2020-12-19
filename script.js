@@ -94,11 +94,11 @@ function writePassword() {
       str.passArray = this.finalArray.flat();
 
 
-      // if user does not select any characters to use in their password the function will start over
+      // if user does not select any characters to use in their password the function will end and they can try again
 
       if (confirmCap === false && confirmLow === false && confirmNumeric === false && confirmSpec === false) {
-        alert("You did not select any characters! Please try again.");
-        writePassword();
+        alert("You did not select any characters! You must choose at least one character set. Please try again.");
+        generateBtn();
       }
       
       else {
