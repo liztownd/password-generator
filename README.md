@@ -18,6 +18,11 @@ The final result:
 
 ![final result](images/final-result.png)
 
+If the user cancels out of selecting ALL character sets, they will get an error message asking them to try again (they must select at least one character set to pull from):
+
+![error message](images/errormsg.png)
+
+
 <br>
 
 #The Code:
